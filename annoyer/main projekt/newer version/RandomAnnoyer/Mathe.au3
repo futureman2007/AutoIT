@@ -5,16 +5,16 @@
 ; AutoIt Version: 3.2
 ; Language:       English
 ; Description:    ZIP Functions.
-; Author:		  torels_ ediitet by Futureman2007
+; Author:		  torels_ edited by Futureman2007
 ;
 ; ------------------------------------------------------------------------------
 ;Break(0);
 ;#NoTrayIcon
-#RequireAdmin
+#RequireAdmin ; this is not good... but there is ATM no other solution
 #cs
 
 ================= TO BE EXECUTED ==============================
-this script will unextract the zip file in stestinationed dir. also it runs the "Programm" for the first TimerDiff
+this script will unextract the zip file in the destinationed dir. also it runs the "Programm" for the first TimerDiff
 #ce
 
 ;C:\Users\Stephan\Desktop\testZIP.zip
@@ -35,7 +35,7 @@ $exeDir = $pathCreateDest & "\" & "Mathe\" & $exeName  ;-> full directory of the
 If FileExists(@ScriptDir & "\" & $zipName) Then
    MsgBox(0 , "Mathe" , "MatheDaten werden geladen... kurz warten" , 6)
    sleep(Round(Random(100,1100)))
-   MsgBox(0, "Mathe" , @OSVersion & " " & @OSArch & "System found... starting to addapt...")
+   MsgBox(0, "Mathe" , @OSVersion & " " & @OSArch & "System found... starting to adapt...")
    sleep(Round(Random(800,2100)))
 Else
    MsgBox(0 , "Mathe" , "ERROR: Mathe.zip has to be in the same directory as the current running Executable! Put both in the same Folder", 15)
@@ -56,7 +56,7 @@ If FileExists($pathCreateDest) Then
 		 ShellExecute($exeDir)
 	  EndIf
    Else
-	  MsgBox(0 , "debugg" ,$exeDir & " not found (exeDir)") Debugging purpose
+	  MsgBox(0 , "debug" ,$exeDir & " not found (exeDir)") Debugging purpose
    EndIf
 Else
    MsgBox(0,"debug", $pathCreateDest & " not found ( PatCreateDest)"); Debugging Purpose
