@@ -1,0 +1,3 @@
+-> log keys and send them over the internet (encrypted) to me
+TCP Server Client autoIT 
+https://www.autoitscript.com/forum/topic/149685-solvedsending-line-over-tcp-connection-from-two-clients/

